@@ -23,9 +23,9 @@ export default function Home() {
         >
           <ul className="flex gap-6  h-full justify-end px-2 ">
             <li className="h-full">
-              <a href="/" className="h-full items-center flex font-bold">
+              <Link to="/home" className="h-full items-center flex font-bold">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="h-full">
               <a
@@ -38,11 +38,13 @@ export default function Home() {
             </li>
             <li className="h-full">
               <Link to="/contact">
-              <p className="h-full items-center flex font-bold">
-                We're Here
-              </p>
+                <p className="h-full items-center flex font-bold">We're Here</p>
               </Link>
-            
+            </li>
+            <li className="h-full">
+              <Link to="/login">
+                <p className="h-full items-center flex font-bold">Logout</p>
+              </Link>
             </li>
           </ul>
         </nav>

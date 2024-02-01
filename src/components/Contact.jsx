@@ -16,9 +16,9 @@ const Contact = () => {
         >
           <ul className="flex gap-6  h-full justify-end px-2 ">
             <li className="h-full">
-              <a href="/" className="h-full items-center flex font-bold">
+              <Link to="/home" className="h-full items-center flex font-bold">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="h-full">
               <a
@@ -31,11 +31,13 @@ const Contact = () => {
             </li>
             <li className="h-full">
               <Link to="/contact">
-              <p className="h-full items-center flex font-bold">
-                We're Here
-              </p>
+                <p className="h-full items-center flex font-bold">We're Here</p>
               </Link>
-            
+            </li>
+            <li className="h-full">
+              <Link to="/login">
+                <p className="h-full items-center flex font-bold">Logout</p>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -48,9 +50,8 @@ const Contact = () => {
             <p className="mt-6 text-gray-100">
               We value your feedback and inquiries. If you have any questions,
               suggestions, or concerns, please feel free to reach out to us. Our
-              dedicated team is here to assist you. Email:
-              ed.coed@cumail.in Phone: +918006060999 Alternatively, you
-              can use the contact form below to send us a message. We appreciate
+              dedicated team is here to assist you.
+              You can use the contact form below to send us a message. We appreciate
               your interest and look forward to hearing from you.
             </p>
             <div className="flex flex-col mt-8 space-y-3 text-white">
@@ -59,7 +60,7 @@ const Contact = () => {
                   data-lucide="phone"
                   className="flex-shrink-0 w-5 h-auto stroke-text-gray-100"
                 ></i>
-                <span className="ml-4 text-gray-100">+918006060999</span>
+                {/* <span className="ml-4 text-gray-100">+918006060999</span> */}
               </a>
 
               <a
@@ -70,7 +71,7 @@ const Contact = () => {
                   data-lucide="mail"
                   className="flex-shrink-0 w-5 h-auto stroke-text-gray-100"
                 ></i>
-                <span className="ml-4 text-gray-100">ed.coed@cumail.in</span>
+                {/* <span className="ml-4 text-gray-100">ed.coed@cumail.in</span> */}
               </a>
             </div>
           </div>
@@ -79,7 +80,7 @@ const Contact = () => {
             <h2 className="mb-8 text-lg font-medium">
               Have a Doubt? Send us a Message
             </h2>
-            <form  id="flex flex-col">
+            <form  >
               <div className="flex flex-col mt-2 space-y-2">
                 <label for="send2m-name" className="">
                   Name
