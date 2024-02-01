@@ -23,7 +23,7 @@ export default function Home() {
         >
           <ul className="flex gap-6  h-full justify-end px-2 ">
             <li className="h-full">
-              <Link to="/home" className="h-full items-center flex font-bold">
+              <Link to="/" className="h-full items-center flex font-bold">
                 Home
               </Link>
             </li>

@@ -46,7 +46,7 @@ const App = () => {
     <Router>
       <div>
         <Routes>
-          <Route path="/home" element={<PrivateRoute element={<Home />} isAuthenticated={isAuthenticated} />} />
+          <Route path="/" element={<Home />} /> 
           <Route path="/contact" element={<PrivateRoute element={<Contact />} isAuthenticated={isAuthenticated} />} />
           <Route
             path="/login"

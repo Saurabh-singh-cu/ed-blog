@@ -31,7 +31,7 @@ const Signin = ({ setIsAuthenticated }) => {
       });
 
       setTimeout(() => {
-        navigate("/home");
+        navigate("/");
       }, 2000);
     } else {
       notification.error({
