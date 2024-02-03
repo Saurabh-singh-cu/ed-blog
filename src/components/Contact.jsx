@@ -42,7 +42,7 @@ const Contact = () => {
               </Link>
             </li>
             <li className="h-full">
-              <Link to="/login">
+              <Link to="/">
                 <p className="h-full items-center flex font-bold">Logout</p>
               </Link>
             </li>
