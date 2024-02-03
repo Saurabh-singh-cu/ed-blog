@@ -1,0 +1,145 @@
+/* src/index.css or src/App.css */
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+
+.shadow-lg{
+    filter: brightness(1);
+}
+.home-blog {
+  display: flex;
+  /* background-color: grey; */
+  height: auto;
+  width: 100%;
+}
+.home-left {
+  width: 35%;
+  height: auto;
+  background-color: #ffffff;
+  /* margin-left: 20px; */
+}
+.home-right {
+  width: 65%;
+  height: auto;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+
+  gap: 100px;
+}
+.blog-post{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* width: 50%; */
+  gap: 70px;
+}
+.research-post{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* width: 50%; */
+  gap: 70px;
+}
+.sidebar-title {
+  margin: 10px;
+  padding: 5px;
+  width: 80%;
+  border-top: 1px solid #0026fd;
+  border-bottom: 1px solid #0026fd;
+  font-family: "Varela Round", sans-serif;
+  font-size: 12px;
+  color: #222;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+}
+.aboyDis {
+  padding: 15px 30px;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+.social-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 200px; */
+  height: 137px;
+  box-sizing: border-box;
+}
+
+.social-menu ul {
+  transform: translate(-50%, -50%);
+  display: flex;
+  margin-left: 250px;
+}
+
+.social-menu ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+.social-menu ul li .fab {
+  font-size: 30px;
+  line-height: 60px;
+  transition: 0.3s;
+  color: #000;
+}
+
+.social-menu ul li .fab:hover {
+  color: #fff;
+}
+
+.social-menu ul li a {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  transition: 0.6s;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
+}
+
+.social-menu ul li a:hover {
+  transform: translate(0, -10%);
+}
+
+.social-menu ul li:nth-child(1) a:hover {
+  background-color: rgba(0, 0, 0, 0.829);
+}
+
+.social-menu ul li:nth-child(2) a:hover {
+  background-color: #0077b5;
+}
+.social-menu ul li:nth-child(3) a:hover {
+  background-color: #00004c;
+}
+@media only screen and (max-width: 900px) {
+  .home-blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .home-left {
+    width: 100%;
+  }
+  .home-right {
+    width: 100%;
+  }
+  #nav-small {
+    background-color: white;
+  }
+}
+
+/* #imgsir{
+    filter: brightness(0.6);
+} */
+/* .shadow-lg{
+    filter: brightness(1);
+} */

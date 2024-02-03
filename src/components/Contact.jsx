@@ -16,7 +16,7 @@ const Contact = () => {
         >
           <ul className="flex gap-6  h-full justify-end px-2 ">
             <li className="h-full">
-              <Link to="/home" className="h-full items-center flex font-bold">
+              <Link to="/" className="h-full items-center flex font-bold">
                 Home
               </Link>
             </li>
@@ -29,9 +29,16 @@ const Contact = () => {
                 Blog
               </a>
             </li>
+           
+           
+            <li className="h-full">
+              <Link to="/research">
+                <p className="h-full items-center flex font-bold">Research</p>
+              </Link>
+            </li>
             <li className="h-full">
               <Link to="/contact">
-                <p className="h-full items-center flex font-bold">We're Here</p>
+                <p className="h-full items-center flex font-bold">Have Questions</p>
               </Link>
             </li>
             <li className="h-full">
@@ -104,7 +111,7 @@ const Contact = () => {
                 />
               </div>
 
-              <div className="flex flex-col mt-2 space-y-2">
+              {/* <div className="flex flex-col mt-2 space-y-2">
                 <label for="send2m-subject">Subject</label>
                 <input
                   type="text"
@@ -112,7 +119,7 @@ const Contact = () => {
                   id="subject"
                   className="px-4 py-2 bg-white border-2 border-gray-200 rounded-md outline-none focus:border-blue-600"
                 />
-              </div>
+              </div> */}
 
               <div className="flex flex-col mt-2 space-y-2">
                 <label for="message">Message</label>

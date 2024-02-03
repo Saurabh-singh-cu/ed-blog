@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import image from "../assets/image.png";
 import { notification } from "antd";
-// import 'antd/dist/antd.css';
 import { useNavigate } from "react-router-dom";
 
 const Signin = ({ setIsAuthenticated }) => {
@@ -31,7 +30,7 @@ const Signin = ({ setIsAuthenticated }) => {
       });
 
       setTimeout(() => {
-        navigate("/home");
+        navigate("/");
       }, 2000);
     } else {
       notification.error({
