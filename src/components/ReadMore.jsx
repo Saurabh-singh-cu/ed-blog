@@ -20,7 +20,7 @@ const ReadMore = () => {
       <Header />
       <nav
         style={{
-          background: "linear-gradient(to right, #000046, #fff",
+        
           height: "50px",
         }}
         className="h-14 flex px-6 h-full items-center justify-end bg-gradient-to-r "

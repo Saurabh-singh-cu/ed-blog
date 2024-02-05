@@ -2,67 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
+import Navbar from "./Navbar";
 
 const Contact = () => {
   return (
     <div>
       <Header />
-      <nav
-          style={{
-            background: "linear-gradient(to right, #000046, #fff",
-            height: "50px",
-          }}
-          className="h-14 flex px-6 h-full items-center justify-end bg-gradient-to-r "
-        >
-          <ul className="flex gap-6  h-full justify-end px-2 ">
-            <li className="h-full">
-              <Link to="/" className="h-full items-center flex font-bold">
-                Home
-              </Link>
-            </li>
-            <li className="h-full">
-              <a
-                href="https://noteachingjustlearning.blogspot.com/"
-                target="_blank"
-                className="h-full items-center flex font-bold"
-              >
-                Blog
-              </a>
-            </li>
-           
-           
-            <li className="h-full">
-              <Link to="/research">
-                <p className="h-full items-center flex font-bold">Research</p>
-              </Link>
-            </li>
-            <li className="h-full">
-              <Link to="/contact">
-                <p className="h-full items-center flex font-bold">Have Questions</p>
-              </Link>
-            </li>
-            <li className="h-full">
-              <Link to="/">
-                <p className="h-full items-center flex font-bold">Logout</p>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+      <Navbar />
       <main>
         <section className="grid grid-cols-1 m-4 shadow-xl md:grid-cols-4">
-          <div style={{backgroundColor:"#00004C"}} className="flex flex-col col-span-2 p-4 py-16 rounded-t-md md:rounded--none md:rounded-l-md">
+          <div
+            style={{ backgroundColor: "#00004C" }}
+            className="flex flex-col col-span-2 p-4 py-16 rounded-t-md md:rounded--none md:rounded-l-md"
+          >
             <h2 className="text-4xl font-bold tracking-tight text-gray-50 sm:text-5xl lg:text-6xl">
               We're Here For You
             </h2>
             <p className="mt-6 text-gray-100">
               We value your feedback and inquiries. If you have any questions,
               suggestions, or concerns, please feel free to reach out to us. Our
-              dedicated team is here to assist you.
-              You can use the contact form below to send us a message. We appreciate
-              your interest and look forward to hearing from you.
+              dedicated team is here to assist you. You can use the contact form
+              below to send us a message. We appreciate your interest and look
+              forward to hearing from you.
             </p>
             <div className="flex flex-col mt-8 space-y-3 text-white">
-              <a className="flex items-center text-base" href="tel:+1123-456-7890">
+              <a
+                className="flex items-center text-base"
+                href="tel:+1123-456-7890"
+              >
                 <i
                   data-lucide="phone"
                   className="flex-shrink-0 w-5 h-auto stroke-text-gray-100"
@@ -87,7 +54,7 @@ const Contact = () => {
             <h2 className="mb-8 text-lg font-medium">
               Have a Doubt? Send us a Message
             </h2>
-            <form  >
+            <form>
               <div className="flex flex-col mt-2 space-y-2">
                 <label for="send2m-name" className="">
                   Name
@@ -133,7 +100,7 @@ const Contact = () => {
               <button
                 type="submit"
                 id="btn"
-                style={{backgroundColor:"#00004C"}}
+                style={{ backgroundColor: "#00004C" }}
                 className="w-full px-4 py-3 mt-8 text-white transition-colors  rounded-md hover:bg-blue-900"
               >
                 Send Message
