@@ -11,11 +11,12 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
 
   const fetchBlog = async () => {
-    const apiRes = await fetch("http://172.17.18.255:8080/blog-post/all/");
+    const apiRes = await fetch("https://apiedportfolio.unicornfortunes.com/blog-post/all/");
     const response = await apiRes.json();
     const sortedBlogs = response.sort(
       (a, b) => new Date(b.created_at) - new Date(a.created_at)
     );
+    console.log(response, "BLOGS")
 
     const formattedBlogs = sortedBlogs.map((blog) => {
       const date = new Date(blog.created_at);
@@ -33,7 +34,7 @@ const Blogs = () => {
               color: "#E2FB08",
             }}
           >
-            Recent Post
+            Recent Blog
           </p>
         );
       } else {
@@ -52,9 +53,9 @@ const Blogs = () => {
     setBlogs(formattedBlogs);
   };
 
-  const handleClick = () => {
-    navigate("/");
-  };
+  // const handleClick = () => {
+  //   navigate("/");
+  // };
 
   useEffect(() => {
     fetchBlog();
@@ -76,7 +77,7 @@ const Blogs = () => {
         >
           Blogs
         </span>
-        {blogs.length < 0 ? (
+        {blogs.length <= 0 ? (
           <h1>No Blogs Found</h1>
         ) : (
           <>
@@ -84,7 +85,7 @@ const Blogs = () => {
               blogs.map((item) => (
                 <div key={item.id}>
                   <div
-                    style={{ width: "310px" }}
+                    style={{ width: "350px", height:"460px" }}
                     className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                   >
                     <a
@@ -96,21 +97,21 @@ const Blogs = () => {
                       href="#"
                     >
                       <img
-                        style={{ width: "300px" }}
+                        style={{ width: "280px", height:"220px" }}
                         className="rounded-t-lg"
-                        src={item?.image}
-                        alt=""
+                        src={`data:image/png;base64,${item.image}`}
+                        alt={item.title}
                       />
                     </a>
                     <div style={{ padding: "2.5rem" }} className="p-5">
                       <a href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                          {item?.title}
+                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        {item?.title.length > 20 ? `${item?.title.slice(0, 30)}...` : item?.title}
                         </h5>
                       </a>
                       <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                         {item?.content.length > 80
-                          ? `${item?.content.slice(0, 80)}...`
+                          ? `${item?.content.slice(0, 80)}....Read More`
                           : item?.content}
                       </p>
 

@@ -1,10 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 import Navbar from "./Navbar";
+import axios from "axios";
+import { notification } from "antd";
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
+  const [name, setName] = useState([]);
+  const [email, setEmail] = useState([]);
+  const [message, setMessage] = useState([]);
+
+  const fetchApi = async () => {
+    setLoading(true);
+
+    try {
+      let data = {
+        title: name,
+        email: email,
+        content: message,
+      };
+
+      let config = {
+        method: "POST",
+        url: "https://apiedportfolio.unicornfortunes.com/text-post/create/",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data,
+      };
+
+      const response = await axios(config);
+      const apiResponse = response.data;
+      notification.success({
+        message: "Message Sent",
+        description: "Successfully Sent Message to Admin",
+      });
+      setName("");
+      setEmail("");
+      setMessage("");
+
+
+      setLoading(false);
+    } catch (error) {
+      console.log(error, "MESSAGE");
+    }
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await fetchApi(name, email, message);
+
+    } catch (error) {
+      console.log(error, "POST");
+    }
+  };
+
   return (
     <div>
       <Header />
@@ -34,7 +88,6 @@ const Contact = () => {
                   data-lucide="phone"
                   className="flex-shrink-0 w-5 h-auto stroke-text-gray-100"
                 ></i>
-                {/* <span className="ml-4 text-gray-100">+918006060999</span> */}
               </a>
 
               <a
@@ -45,7 +98,6 @@ const Contact = () => {
                   data-lucide="mail"
                   className="flex-shrink-0 w-5 h-auto stroke-text-gray-100"
                 ></i>
-                {/* <span className="ml-4 text-gray-100">ed.coed@cumail.in</span> */}
               </a>
             </div>
           </div>
@@ -54,7 +106,7 @@ const Contact = () => {
             <h2 className="mb-8 text-lg font-medium">
               Have a Doubt? Send us a Message
             </h2>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="flex flex-col mt-2 space-y-2">
                 <label for="send2m-name" className="">
                   Name
@@ -63,6 +115,8 @@ const Contact = () => {
                   type="text"
                   name="name"
                   id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="px-4 py-2 bg-white border-2 border-gray-200 rounded-md outline-none focus:border-blue-600"
                 />
               </div>
@@ -73,26 +127,20 @@ const Contact = () => {
                   type="email"
                   name="email"
                   id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   autocomplete="email"
                   className="px-4 py-2 bg-white border-2 border-gray-200 rounded-md outline-none focus:border-blue-600"
                 />
               </div>
-
-              {/* <div className="flex flex-col mt-2 space-y-2">
-                <label for="send2m-subject">Subject</label>
-                <input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  className="px-4 py-2 bg-white border-2 border-gray-200 rounded-md outline-none focus:border-blue-600"
-                />
-              </div> */}
 
               <div className="flex flex-col mt-2 space-y-2">
                 <label for="message">Message</label>
                 <textarea
                   id="message"
                   rows="4"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   className="px-4 py-2 bg-white border-2 border-gray-200 rounded-md outline-none focus:border-blue-600"
                 ></textarea>
               </div>
@@ -105,17 +153,6 @@ const Contact = () => {
               >
                 Send Message
               </button>
-
-              {/* <div className="p-2 mt-4 text-base leading-7 text-black bg-blue-200">
-               
-                <a
-                  className="text-blue-600 hover:underline font-medium"
-                  target="_blank"
-                  href="https://send2m.com?ref=codepen-contact-form-with-contact-details"
-                >
-                  Send2M
-                </a>
-              </div> */}
             </form>
           </div>
         </section>

@@ -11,7 +11,7 @@ export const loginManual = async (email, password) => {
 
     let config = {
       method: "POST",
-      url: "http://172.17.18.255:8080/api/login/",
+      url: "https://apiedportfolio.unicornfortunes.com/api/login/",
       headers: {
         "Content-Type": "application/json",
       },

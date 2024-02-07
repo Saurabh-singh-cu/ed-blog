@@ -1,14 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ReadMore.css";
 import Header from "./Header";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const ReadMore = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const { id } = useParams();
+  const [blogData, setBlogData] = useState(null);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+  
+  useEffect(() => {
+    const fetchBlogData = async () => {
+      const apiUrl = `https://apiedportfolio.unicornfortunes.com/research-post/${id}`;
+      console.log("API URL:", apiUrl);
+  
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        setBlogData(data);
+      } catch (error) {
+        console.error("Error fetching blog data:", error);
+      }
+    };
+  
+    fetchBlogData();
+  }, [id]);
+  
+
+
 
   const pageStyle = {
     backgroundColor: darkMode ? "#333" : "#fff",
@@ -18,49 +41,7 @@ const ReadMore = () => {
   return (
     <>
       <Header />
-      <nav
-        style={{
-        
-          height: "50px",
-        }}
-        className="h-14 flex px-6 h-full items-center justify-end bg-gradient-to-r "
-      >
-        <ul className="flex gap-6  h-full justify-end px-2 ">
-          <li className="h-full">
-            <Link to="/" className="h-full items-center flex font-bold">
-              Home
-            </Link>
-          </li>
-          <li className="h-full">
-            <a
-              href="https://noteachingjustlearning.blogspot.com/"
-              target="_blank"
-              className="h-full items-center flex font-bold"
-            >
-              Blog
-            </a>
-          </li>
-         
-          
-          <li className="h-full">
-            <Link to="/research">
-              <p className="h-full items-center flex font-bold">Research</p>
-            </Link>
-          </li>
-          <li className="h-full">
-            <Link to="/contact">
-              <p className="h-full items-center flex font-bold">
-                Have Questions
-              </p>
-            </Link>
-          </li>
-          <li className="h-full">
-            <Link to="/login">
-              <p className="h-full items-center flex font-bold">Logout</p>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+    <Navbar />
       <div className="blog-page" style={pageStyle}>
         <div className="switch-tab">
           <label className="mode">
@@ -73,25 +54,30 @@ const ReadMore = () => {
           </label>
         </div>
         <header className="header-dl">
-          <h1>My React Blog</h1>
+          <h1>Read</h1>
         </header>
 
         <nav className="nav-dl">
           <ul className="ul-dl">
-            <li className="li-dl">Home</li>
-            <li className="li-dl">Home</li>
-            <li className="li-dl">Home</li>
-            <li className="li-dl">Home</li>
-            <li className="li-dl">Home</li>
+            <li className="li-dl">Read</li>
+            <li className="li-dl">Understand</li>
+            <li className="li-dl">Summerize</li>
+            <li className="li-dl">Think</li>
+            <li className="li-dl">Execute</li>
           </ul>
         </nav>
 
         <div className="content">
-          <h2>Blog Post Title</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-            odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.
-          </p>
+        <div className="content">
+          {blogData ? (
+            <>
+              <h2>{blogData.title}</h2>
+              <p>{blogData.content}</p>
+            </>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
         </div>
       </div>
     </>

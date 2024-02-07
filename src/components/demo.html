@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .ag-courses_item {
+        width: 98vw;
+        overflow: hidden;
+        border-radius: 28px;
+      }
+      .ag-courses-item_link {
+        text-decoration: none;
+        display: block;
+        padding: 30px 20px;
+        background-color: #000000;
+        overflow: hidden;
+        position: relative;
+      }
+      .ag-courses-item_link:hover,
+      .ag-courses-item_link:hover .ag-courses-item_date {
+        text-decoration: none;
+        color: #fff;
+      }
+      .ag-courses-item_link:hover .ag-courses-item_bg {
+        transform: scale(10);
+      }
+      .ag-courses-item_title {
+        margin: 0 0 25px;
+        font-family: sans-serif;
+        overflow: hidden;
+        font-weight: bold;
+        font-size: 30px;
+        color: #fff;
+        z-index: 2;
+        position: relative;
+      }
+      .para {
+        min-height: 60px;
+        margin: 0 0 25px;
+        text-decoration: none;
+        overflow: hidden;
+        font-size: 20px;
+        color: #fff;
+        font-family: sans-serif;
+        letter-spacing: 1.5px;
+        z-index: 2;
+      }
+      .ag-courses-item_date-box {
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        height: 30px;
+        align-items: center;
+        border-radius: 5px;
+        font-family: sans-serif;
+        color: white;
+        display: flex;
+        justify-content: center;
+        background-color: #e44002;
+        z-index: 2;
+        position: relative;
+        width: 200px;
+      }
+      .ag-courses_item:hover .ag-courses-item_date-box {
+        background-color: white;
+        color: #e44002;
+      }
+      .ag-courses-item_date {
+        font-weight: bold;
+        color: #f9b234;
+        font-family: sans-serif;
+        transition: color 0.5s ease;
+      }
+      .ag-courses-item_bg {
+        height: 128px;
+        width: 128px;
+        background-color: #f9b234;
+        z-index: 1;
+        position: absolute;
+        top: -75px;
+        right: -75px;
+        border-radius: 50%;
+        transition: all 0.5s ease;
+      }
+      .ag-courses_item:nth-child(n) .ag-courses-item_bg {
+        background-color: #e44002;
+      }
+    </style>
+
+    <div class="ag-courses_item">
+      <a href="#" target="_blank" class="ag-courses-item_link">
+        <div class="ag-courses-item_bg"></div>
+
+        <div class="ag-courses-item_title">
+          Student Survey Important Notification!
+        </div>
+
+        <div class="ag-courses-item_title para">
+          Dear Learners, take a moment to share your thoughts on the student
+          survey.
+        </div>
+
+        <div class="ag-courses-item_date-box">Click Here</div>
+      </a>
+    </div>
+  </body>
+</html>

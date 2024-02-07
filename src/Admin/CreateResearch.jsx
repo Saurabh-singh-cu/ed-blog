@@ -4,10 +4,10 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { notification } from "antd";
 
-const CreateBlog = () => {
+const CreateResearch = () => {
   const [loading, setLoading] = useState(false);
 
-  const [postType, setPostType] = useState("blog");
+  const [postType, setPostType] = useState("research");
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState([]);
   const [content, setContent] = useState([]);
@@ -70,7 +70,7 @@ const CreateBlog = () => {
         formData.append("image", image);
         formData.append("content", content);
   
-        fetch("https://apiedportfolio.unicornfortunes.com/blog-post/create/", {
+        fetch("https://apiedportfolio.unicornfortunes.com/research-post/create/", {
           method: "POST",
           body: formData,
           headers: {
@@ -128,7 +128,7 @@ const CreateBlog = () => {
               className="col-span-2 p-4 pt-12 rounded-md bg-gray-50 "
             >
               <h2 className="mb-8 text-lg font-medium">
-                Create Blog 
+                Create Research
               </h2>
 
 
@@ -219,4 +219,4 @@ const CreateBlog = () => {
   );
 };
 
-export default CreateBlog;
+export default CreateResearch;
