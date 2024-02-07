@@ -53,9 +53,9 @@ const Blogs = () => {
     setBlogs(formattedBlogs);
   };
 
-  // const handleClick = () => {
-  //   navigate("/");
-  // };
+  const handleClick = () => {
+    navigate("/");
+  };
 
   useEffect(() => {
     fetchBlog();
