@@ -23,6 +23,7 @@ const Navbar = () => {
       <nav
         style={{
           height: "50px",
+         
         }}
         className="h-14 flex px-6 h-full items-center justify-between  bg-gradient-to-r "
       >
@@ -102,3 +103,8 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
+
