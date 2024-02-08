@@ -1,6 +1,5 @@
-import { notification } from "antd";
 import axios from "axios";
-import CircularJSON from "circular-json";
+import swal from "sweetalert";
 
 export const loginManual = async (email, password) => {
   try {
@@ -18,22 +17,37 @@ export const loginManual = async (email, password) => {
       data,
     };
 
-    const response = await axios(config);
-    const apiResponse = response.data;
+    let token = btoa(`${data.username}:${data.password}`);
 
     let localStorageObj = {
-      accessToken: apiResponse?.token,
+      accessToken: token,
     };
     localStorage.setItem("AdminSaurabh", JSON.stringify(localStorageObj));
+
+    const response = await axios(config);
+    const apiResponse = response.data;
+    console.log(apiResponse, "API RESPONSE");
+
     if (apiResponse?.token) {
       window.location.href = "/";
     } else {
       window.location.href = "/login";
     }
 
-  
     console.log(apiResponse, "TOKEN");
+    swal({
+      title: "Login Successful",
+
+      icon: "success",
+      button: "Close",
+    });
   } catch (error) {
-    console.log(error, "ERROR");
+    swal({
+      title: `${apiResponse?.data?.message}`,
+      text: `${apiResponse?.data?.message}`,
+      icon: "error",
+      button: "Close",
+    });
+    console.log(error, "ERRORQQQQQQQQQQQQQQQ");
   }
 };

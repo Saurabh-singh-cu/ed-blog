@@ -3,6 +3,7 @@ import image from "../assets/image.png";
 
 import { Link, useNavigate } from "react-router-dom";
 import { loginManual } from "../redux/LoginAction";
+import { notification } from "antd";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -15,7 +16,9 @@ const Signin = () => {
     try {
       await loginManual(email, password);
     } catch (error) {
-      console.log(error, "FN");
+     notification.error({
+      message:"Wrong Credential"
+     })
     }
   };
   return (

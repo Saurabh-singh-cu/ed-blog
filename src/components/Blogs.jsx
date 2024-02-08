@@ -86,7 +86,7 @@ const Blogs = () => {
               blogs.map((item) => (
                 <div key={item.id}>
 
-                       <div class="max-w-sm h-96 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                       <div style={{backgroundColor:"#1F2937"}} class="max-w-sm h-96 bg-white border border-gray-200 rounded-lg shadow ">
                     <a
                       style={{
                         display: "flex",

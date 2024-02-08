@@ -258,7 +258,7 @@ export default function Home() {
               {blogs &&
                 blogs.map((item) => (
                   <div key={item.id}>
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div style={{backgroundColor:"#1F2937"}} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
                       <a
                         style={{
                           display: "flex",
@@ -361,7 +361,7 @@ export default function Home() {
               {research &&
                 research.map((item) => (
                   <div key={item.id}>
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div style={{backgroundColor:"#1F2937"}} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
                       <a
                         style={{
                           display: "flex",
