@@ -7,11 +7,16 @@ import { Link, useSearchParams } from "react-router-dom";
 import "./Research.css";
 import clock from "../assets/clock.png"
 import cartImg from "../assets/cartImg.png";
+import LoadingCard from "./LoadingCard";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading ] = useState(false);
+
 
   const fetchBlog = async () => {
+    setLoading(true)
+   try{
     const apiRes = await fetch("https://apiedportfolio.unicornfortunes.com/blog-post/all/");
     const response = await apiRes.json();
     const sortedBlogs = response.sort(
@@ -52,6 +57,10 @@ const Blogs = () => {
     });
 
     setBlogs(formattedBlogs);
+    setLoading(false);
+   }catch(error) {
+    console.log(error)
+   }
   };
 
   const handleClick = () => {
@@ -78,7 +87,7 @@ const Blogs = () => {
         >
           Blogs
         </span>
-        {blogs.length <= 0 ? (
+      {loading === true ? <LoadingCard /> : <>  {blogs.length <= 0 ? (
           <h1>No Blogs Found</h1>
         ) : (
           <>
@@ -166,7 +175,7 @@ const Blogs = () => {
                 </div>
               ))}
           </>
-        )}
+        )}</>}
       </div>
     </div>
   );

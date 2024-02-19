@@ -8,6 +8,7 @@ import "./Home.css";
 import cartImg from "../assets/cartImg.png";
 import Navbar from "../components/Navbar";
 import clock from "../assets/clock.png";
+import Loader from "../components/Loader";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -16,8 +17,11 @@ export default function Home() {
   const [blogs, setBlogs] = useState([]);
   const [research, setResearch] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   const fetchBlog = async () => {
     try {
+      setLoading(true);
       const apiRes = await fetch(
         "https://apiedportfolio.unicornfortunes.com/blog-post/all/"
       );
@@ -62,6 +66,7 @@ export default function Home() {
       const recentBlogs = formattedBlogs.slice(0, 2);
 
       setBlogs(recentBlogs);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching blogs:", error);
     }
@@ -69,6 +74,7 @@ export default function Home() {
 
   const fetchResearch = async () => {
     try {
+      setLoading(true);
       // const apiRes = await fetch("http://172.17.18.255:8080/research-post/all/");
       const apiRes = await fetch(
         "https://apiedportfolio.unicornfortunes.com/research-post/all/"
@@ -114,6 +120,7 @@ export default function Home() {
       const recentBlogs = formattedBlogs.slice(0, 2);
 
       setResearch(recentBlogs);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching blogs:", error);
     }
@@ -255,88 +262,100 @@ export default function Home() {
               >
                 Latest Blogs
               </span>
-              {blogs &&
-                blogs.map((item) => (
-                  <div key={item.id}>
-                    <div style={{backgroundColor:"#1F2937"}} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                      <a
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          width: "380px",
-                        }}
-                        href="#"
-                      >
-                        <img
-                          style={{
-                            width: "354px",
-                            marginTop: "-20px",
-                            height: "210px",
-                          }}
-                          class="rounded-t-lg"
-                          src={`data:image/png;base64,${item.image}`}
-                          alt=""
-                        />
-                      </a>
-                      <div class="p-5">
-                        <a href="#">
-                          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            {item?.title.length > 20
-                              ? `${item?.title.slice(0, 30)}...`
-                              : item?.title}
-                          </h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                          {item?.content.length > 80
-                            ? `${item?.content.slice(0, 80)}....Read More`
-                            : item?.content}
-                        </p>
+              {loading === true ? (
+                <>
+                  <Loader />{" "}
+                </>
+              ) : (
+                <>
+                  {" "}
+                  {blogs &&
+                    blogs.map((item) => (
+                      <div key={item.id}>
                         <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            width: "350px",
-                            alignItems: "center",
-                          }}
+                          style={{ backgroundColor: "#1F2937" }}
+                          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow "
                         >
                           <a
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              width: "380px",
+                            }}
                             href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                          >
-                            Read more
-                            <svg
-                              class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                              aria-hidden="true"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 14 10"
-                            >
-                              <path
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M1 5h12m0 0L9 1m4 4L9 9"
-                              />
-                            </svg>
-                          </a>
-                          <button
-                            style={{ height: "37px" }}
-                            type="button"
-                            class="text-white bg-[#4da3bd] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 "
                           >
                             <img
-                              style={{ width: "30px", marginRight: "10px" }}
-                              src={clock}
+                              style={{
+                                width: "354px",
+                                marginTop: "-20px",
+                                height: "210px",
+                              }}
+                              class="rounded-t-lg"
+                              src={`data:image/png;base64,${item.image}`}
+                              alt=""
                             />
+                          </a>
+                          <div class="p-5">
+                            <a href="#">
+                              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                {item?.title.length > 20
+                                  ? `${item?.title.slice(0, 30)}...`
+                                  : item?.title}
+                              </h5>
+                            </a>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                              {item?.content.length > 80
+                                ? `${item?.content.slice(0, 80)}....Read More`
+                                : item?.content}
+                            </p>
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                width: "350px",
+                                alignItems: "center",
+                              }}
+                            >
+                              <a
+                                href="#"
+                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                              >
+                                Read more
+                                <svg
+                                  class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 14 10"
+                                >
+                                  <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                                  />
+                                </svg>
+                              </a>
+                              <button
+                                style={{ height: "37px" }}
+                                type="button"
+                                class="text-white bg-[#4da3bd] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 "
+                              >
+                                <img
+                                  style={{ width: "30px", marginRight: "10px" }}
+                                  src={clock}
+                                />
 
-                            <span>{item?.formattedDateTime}</span>
-                          </button>
+                                <span>{item?.formattedDateTime}</span>
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                ))}
+                    ))}
+                </>
+              )}
 
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <h2
@@ -358,10 +377,13 @@ export default function Home() {
                 Latest Research
               </span>
 
-              {research &&
+             {loading === true ? <Loader /> : <> {research &&
                 research.map((item) => (
                   <div key={item.id}>
-                    <div style={{backgroundColor:"#1F2937"}} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
+                    <div
+                      style={{ backgroundColor: "#1F2937" }}
+                      class="max-w-sm bg-white border border-gray-200 rounded-lg shadow "
+                    >
                       <a
                         style={{
                           display: "flex",
@@ -439,7 +461,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))}</>}
 
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <h2
