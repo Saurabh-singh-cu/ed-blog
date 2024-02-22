@@ -114,7 +114,7 @@ const CreateResearch = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Navbar />
 
       <main>

@@ -39,19 +39,19 @@ const Navbar = () => {
               target="_blank"
               className="h-full items-center flex font-bold"
             >
-              Blog
+              Suresh Joshi Blog
             </a>
           </li>
 
           <li className="h-full">
             <Link to="/research">
-              <p className="h-full items-center flex font-bold">Read Research</p>
+              <p className="h-full items-center flex font-bold">Publications</p>
             </Link>
           </li>
 
           <li className="h-full">
             <Link to="/bg">
-              <p className="h-full items-center flex font-bold">Read Blogs</p>
+              <p className="h-full items-center flex font-bold">Trending Now</p>
             </Link>
           </li>
 

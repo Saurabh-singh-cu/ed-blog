@@ -141,17 +141,17 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <main className="">
         <Navbar />
         <div
           className={`h-[410px] w-full bg-center bg-cover text-white`}
           style={{ backgroundImage: `url(${bgImage})` }}
         >
-          <div className="p-10 bg-[#00004C]/50 w-full h-full ">
+          <div className="transformme p-10 bg-[#00004C]/50 w-full h-full ">
             <h1 className="text-4xl font-medium">Aims & Objectives</h1>
             <p
-              className={`w-1/2 overflow-y-auto ${
+              className={` w-1/2 overflow-y-auto ${
                 !truncate ? "truncate" : ""
               } my-12`}
             >

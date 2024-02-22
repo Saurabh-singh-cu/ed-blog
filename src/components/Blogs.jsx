@@ -73,7 +73,7 @@ const Blogs = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Navbar />
       <div style={{ width: "98vw" }} className="research">
         <span

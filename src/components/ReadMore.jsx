@@ -40,7 +40,7 @@ const ReadMore = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
     <Navbar />
       <div className="blog-page" style={pageStyle}>
         <div className="switch-tab">

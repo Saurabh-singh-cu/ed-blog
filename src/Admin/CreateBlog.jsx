@@ -114,7 +114,7 @@ const CreateBlog = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Navbar />
 
       <main>

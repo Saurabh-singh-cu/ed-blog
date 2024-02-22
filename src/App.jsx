@@ -96,6 +96,7 @@ import CreateBlog from "./Admin/CreateBlog";
 import Blogs from "./components/Blogs";
 import CreateResearch from "./Admin/CreateResearch";
 import UserTable from "./Admin/UserTable";
+import Header from "./components/Header";
 
 const AuthContext = createContext();
 
@@ -132,6 +133,7 @@ const App = () => {
   return (
     <Router>
       <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+        <Header />
         <div>
           <Routes>
             <Route path="/" element={<Home />} />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import image from "../assets/image.png";
+// import image from "../assets/image.png";
+import image from "../assets/logoh.png";
 
 import { Link, useNavigate } from "react-router-dom";
 import { loginManual } from "../redux/LoginAction";

@@ -44,7 +44,7 @@ const UserTable = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Navbar />
 
       <div

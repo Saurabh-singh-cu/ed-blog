@@ -61,7 +61,7 @@ const Contact = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Navbar />
       <main>
         <section className="grid grid-cols-1 m-4 shadow-xl md:grid-cols-4">
