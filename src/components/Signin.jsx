@@ -35,7 +35,7 @@ const Signin = () => {
                 <img src={image} alt="Logo" />
               </div>
               <p className="mt-6 font-normal text-center text-gray-300 md:mt-0">
-                Login to Viral&Virtual
+                Login to OnlineEdBuzz
               </p>
               <p className="flex flex-col items-center justify-center mt-10 text-center">
                 <span>If not Admin, go to home page</span>

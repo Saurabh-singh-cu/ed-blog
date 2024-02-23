@@ -8,6 +8,7 @@ import "./Research.css";
 import clock from "../assets/clock.png"
 import cartImg from "../assets/cartImg.png";
 import LoadingCard from "./LoadingCard";
+import Footer from "./Footer";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -80,12 +81,12 @@ const Blogs = () => {
           style={{
             fontWeight: "bold",
             fontSize: "25px",
-            background: "#00004C",
-            color: "white",
+            // background: "#00004C",
+            color: "#00004C",
           }}
           className="sidebar-title"
         >
-          Blogs
+          Trending Now
         </span>
       {loading === true ? <LoadingCard /> : <>  {blogs.length <= 0 ? (
           <h1>No Blogs Found</h1>
@@ -177,6 +178,7 @@ const Blogs = () => {
           </>
         )}</>}
       </div>
+     
     </div>
   );
 };

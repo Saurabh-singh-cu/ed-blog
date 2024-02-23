@@ -260,7 +260,7 @@ export default function Home() {
                 style={{ fontWeight: "bold", fontSize: "20px", width: "auto" }}
                 className="sidebar-title"
               >
-                Latest Blogs
+                Latest Publications
               </span>
               {loading === true ? (
                 <>
@@ -374,7 +374,7 @@ export default function Home() {
                 style={{ fontWeight: "bold", fontSize: "20px", width: "auto" }}
                 className="sidebar-title"
               >
-                Latest Research
+                Trending Now
               </span>
 
              {loading === true ? <Loader /> : <> {research &&

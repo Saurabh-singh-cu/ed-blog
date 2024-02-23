@@ -11,7 +11,7 @@ export default function Header() {
       </a>
       <div className="flex justify-center flex-col">
         <span style={{fontFamily:"inherit", }} className="text-xl text-right mr-6 uppercase ">
-          Online Education Informational Journal
+          Online Learning Informational Journal
         </span>
 
        

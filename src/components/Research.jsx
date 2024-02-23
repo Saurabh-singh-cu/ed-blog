@@ -86,7 +86,7 @@ const Research = () => {
           }}
           className="sidebar-title"
         >
-          Research
+          Publications
         </span>
         {loading === true ? (
           <LoadingCard />
@@ -94,7 +94,7 @@ const Research = () => {
           <>
             {" "}
             {blogs.length <= 0 ? (
-              <h1>No Research Found</h1>
+              <h1>No Publications Found</h1>
             ) : (
               <>
                 {blogs &&
