@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 // import image from "../assets/image.png";
 import image from "../assets/logoh.png";
+import { loginManual } from "../redux/LoginAction";
 
 import { Link, useNavigate } from "react-router-dom";
-import { loginManual } from "../redux/LoginAction";
+
 import { notification } from "antd";
 
 const Signin = () => {
@@ -12,14 +13,18 @@ const Signin = () => {
   const [email, setUserEmail] = useState([]);
   const [password, setUserPassword] = useState([]);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await loginManual(email, password);
     } catch (error) {
-     notification.error({
-      message:"Wrong Credential"
-     })
+      navigate("/login");
+      console.log(error);
+      notification.error({
+        message: "Wrong Credential",
+      });
+   
     }
   };
   return (
@@ -127,16 +132,18 @@ const Signin = () => {
                     <span class="font-normal text-gray-500">Not Admin</span>
                     <span class="h-px bg-gray-400 w-14"></span>
                   </span>
-                  <div class="flex flex-col space-y-4">
-                    <a
-                      href="#"
-                      class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none"
-                    >
-                      <span class="text-sm font-medium text-gray-800 group-hover:text-white">
-                        <Link to="/">Go to Home</Link>
-                      </span>
-                    </a>
-                  </div>
+                  <Link to="/">
+                    <div class="flex flex-col space-y-4">
+                      <a
+                        href="#"
+                        class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none"
+                      >
+                        <span class="text-sm font-medium text-gray-800 group-hover:text-white">
+                          Go to Home
+                        </span>
+                      </a>
+                    </div>
+                  </Link>
                 </div>
               </form>
             </div>

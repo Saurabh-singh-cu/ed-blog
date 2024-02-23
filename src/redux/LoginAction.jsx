@@ -1,7 +1,11 @@
 import axios from "axios";
+import { useState } from "react";
 import swal from "sweetalert";
 
 export const loginManual = async (email, password) => {
+ 
+
+
   try {
     let data = {
       username: email,
@@ -28,7 +32,8 @@ export const loginManual = async (email, password) => {
     const apiResponse = response.data;
     console.log(apiResponse, "API RESPONSE");
 
-    if (apiResponse?.token) {
+    if ( apiResponse?.token) {
+
       window.location.href = "/";
     } else {
       window.location.href = "/login";

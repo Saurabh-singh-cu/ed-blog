@@ -125,13 +125,13 @@ const Research = () => {
                         </a>
                         <div class="p-5">
                           <a href="#">
-                            <h5 class="mb-2  text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            <h5 style={{color:"white"}} class="mb-2  text-2xl font-bold tracking-tight ">
                               {item?.title.length > 30
                                 ? `${item?.title.slice(0, 40)}...`
                                 : item?.title}
                             </h5>
                           </a>
-                          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                          <p style={{color:"gray"}} class="mb-3 font-normal ">
                             {item?.content.length > 80
                               ? `${item?.content.slice(0, 80)}...`
                               : item?.content}
